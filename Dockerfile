@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 
 # Install app dependencies
-RUN npm prune --production && npm install --production
+RUN npm prune --production && npm install --production && npm rebuild grpc --force
 
 EXPOSE 3000
 
