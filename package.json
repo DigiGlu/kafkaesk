@@ -8,9 +8,18 @@
   "license": "",
   "main": "app.js",
   "dependencies": {
+    "@google-cloud/pubsub": "^0.18.0",
+    "@google-cloud/datastore": "^1.4.0",
+    "@google-cloud/storage": "^1.6.0",
+    "cors": "^2.8.4",
     "express": "^4.12.3",
-    "swagger-express-mw": "^0.1.0",
-    "uuid": "^3.2.1"
+    "express-jwt": "^5.3.1",
+    "jwks-rsa": "^1.2.0",
+    "swagger-tools": "^0.10.1",
+    "uuid": "^3.1.0",
+    "winston": "^3.0.0-rc5",
+    "winston-mongodb": "^4.0.0-rc1",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "should": "^7.1.0",
