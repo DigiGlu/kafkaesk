@@ -9,6 +9,19 @@ const pubsubClient = new PubSub({
   projectId: projectId,
 });
 
+// LOGGING with WinstonJS
+const winston = require('winston');
+const logger = winston.createLogger({
+  transports: [
+    new winston.transports.Console({
+      json: true,
+      timestamp: true,
+      handleExceptions: true,
+      colorize: false,
+    })
+  ]
+});
+
 module.exports = {
   subscriptionCreate,
   subscriptionPull
@@ -46,7 +59,7 @@ function subscriptionPull(req, res) {
 
   let messageCount = 0;
   const messageHandler = message => {
-    console.log("msg received", message.data.toString())
+    logger.info("Message received", {message message.data});
     events.push(JSON.parse(message.data.toString()));
     message.ack();
   };

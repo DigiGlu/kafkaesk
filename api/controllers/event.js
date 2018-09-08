@@ -9,6 +9,19 @@ const pubsubClient = new PubSub({
   projectId: projectId,
 });
 
+// LOGGING with WinstonJS
+const winston = require('winston');
+const logger = winston.createLogger({
+  transports: [
+    new winston.transports.Console({
+      json: true,
+      timestamp: true,
+      handleExceptions: true,
+      colorize: false,
+    })
+  ]
+});
+
 module.exports = {
   eventCreate: eventCreate
 };
@@ -26,7 +39,7 @@ function eventCreate(req, res) {
   .publisher()
   .publish(dataBuffer)
   .then(messageId => {
-    console.log(`Message ${messageId} published.`);
+    logger.info("Message published", {messageId: messageId});
     res.json(eventObj);
   })
   .catch(err => {
