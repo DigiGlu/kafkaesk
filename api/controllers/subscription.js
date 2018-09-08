@@ -59,7 +59,7 @@ function subscriptionPull(req, res) {
 
   let messageCount = 0;
   const messageHandler = message => {
-    logger.info("Message received", {message message.data});
+    logger.info("Message received", {message: message.data});
     events.push(JSON.parse(message.data.toString()));
     message.ack();
   };
