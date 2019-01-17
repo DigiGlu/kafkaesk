@@ -1,5 +1,7 @@
 FROM node:8
 
+# GCP credentials
+ENV GOOGLE_CREDENTIALS="/config/google_credentials.json"
 # Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
