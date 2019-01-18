@@ -3,7 +3,7 @@ info:
   version: "0.0.1"
   title: Event handler
 host: localhost:10010
-basePath: /api/v1
+basePath: /kafkaesk/v1
 #
 schemes:
   - http
