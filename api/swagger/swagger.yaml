@@ -155,6 +155,10 @@ definitions:
         type: string
       name:
         type: string
+      type:
+        type: string
+      pushURL:
+        type: string
   Topic:
     required:
       - name

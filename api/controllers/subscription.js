@@ -34,9 +34,23 @@ function subscriptionCreate(req, res) {
 
   subscriptionObj.id = uuidv4()
 
+  var options
+  
+  if (subscriptionObj.type==="PUSH") {
+    options = {
+      pushConfig: {
+        // Set to an HTTPS endpoint of your choice. If necessary, register
+        // (authorize) the domain on which the server is hosted.
+        pushEndpoint: subscriptionObj.pushURL,
+      },
+    };
+  } else {
+    options = {};
+  }
+
   // Creates a new subscription
   pubsubClient.topic(topic)
-  .createSubscription(subscriptionObj.name)
+  .createSubscription(subscriptionObj.name, options)
   .then(results => {
     const subscription = results[0];
     console.log(`Subscription ${subscription.name} created.`);

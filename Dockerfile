@@ -14,7 +14,7 @@ COPY . /usr/src/app
 # Install app dependencies
 RUN npm prune --production && npm install --production && npm rebuild grpc --force
 
-EXPOSE 3000
+EXPOSE 80
 
 # ENTRYPOINT ["/usr/local/bin/node", "app.js"]
 CMD node app.js

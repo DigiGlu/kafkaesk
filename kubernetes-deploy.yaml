@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: kafkaesk-server
-        image: gcr.io/citric-lead-197512/kafkaesk:v4
+        image: gcr.io/citric-lead-197512/kafkaesk:v5
         # command: [ "/bin/sh", "-c", "cat /config/google_credentials.json" ]
         imagePullPolicy: "IfNotPresent"
         ports:
