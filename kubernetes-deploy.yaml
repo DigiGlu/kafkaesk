@@ -10,15 +10,17 @@ spec:
         app: kafkaesk
     spec:
       containers:
-        - name: kafkaesk-server
-          image: gcr.io/citric-lead-197512/kafkaesk:v1
-          command: [ "/bin/sh", "-c", "ls /config" ]
-          imagePullPolicy: "IfNotPresent"
-          ports:
-            - containerPort: 80
-          volumeMounts:
-            - name: config-volume
-              mountPath: /config
+      - name: kafkaesk-server
+        image: gcr.io/citric-lead-197512/kafkaesk:v1
+        # command: [ "/bin/sh", "-c", "cat /config/google_credentials.json" ]
+        imagePullPolicy: "IfNotPresent"
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - name: config-volume
+            mountPath: /config
+      imagePullSecrets:
+      - name: gcr-sec-exp
       volumes:
         - name: config-volume
           configMap:
