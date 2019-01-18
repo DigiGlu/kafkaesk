@@ -27,7 +27,7 @@ const authenticate = jwt({
 swaggerTools.initializeMiddleware(swaggerConfig, function(middleware) {
 
   app.use( cors() );
-  app.use( authenticate );
+  // app.use( authenticate );
 
   app.use(middleware.swaggerMetadata());
 
@@ -39,6 +39,6 @@ swaggerTools.initializeMiddleware(swaggerConfig, function(middleware) {
   app.use(middleware.swaggerRouter(routerConfig));
 
   app.listen(process.env.SRV_PORT, function() {
-    console.log("Started server on port", process.env.SRV_PORT);
+    console.log("Started server on port", process.env.SRV_PORT, process.env.GOOGLE_CREDENTIALS);
   });
 });
