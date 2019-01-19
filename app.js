@@ -39,6 +39,6 @@ swaggerTools.initializeMiddleware(swaggerConfig, function(middleware) {
   app.use(middleware.swaggerRouter(routerConfig));
 
   app.listen(process.env.SRV_PORT, function() {
-    console.log("Started server on port", process.env.SRV_PORT, process.env.GOOGLE_CREDENTIALS);
+    console.log("Started server on port", process.env.SRV_PORT);
   });
 });

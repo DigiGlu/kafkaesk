@@ -28,7 +28,6 @@ module.exports = {
 };
 
 function subscriptionCreate(req, res) {
-  // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
   var subscriptionObj = req.swagger.params.subscription.value;
   var topic = req.swagger.params.topic.value;
 
@@ -39,8 +38,6 @@ function subscriptionCreate(req, res) {
   if (subscriptionObj.type==="PUSH") {
     options = {
       pushConfig: {
-        // Set to an HTTPS endpoint of your choice. If necessary, register
-        // (authorize) the domain on which the server is hosted.
         pushEndpoint: subscriptionObj.pushURL,
       },
     };
@@ -63,7 +60,6 @@ function subscriptionCreate(req, res) {
 }
 
 function subscriptionPull(req, res) {
-  // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
   var subscriptionName = req.swagger.params.subscription.value;
   var topic = req.swagger.params.topic.value;
 
